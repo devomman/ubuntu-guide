@@ -1,0 +1,901 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="ftwp-postcontent">
+        <p class="h3">Introduction</p>
+
+
+
+        <p>Nginx is a free, open-source Linux application for web servers. It works as a reverse proxy server by
+            directing web traffic to specific servers.</p>
+
+
+
+        <p>Nginx is used for security and <a href="https://phoenixnap.com/kb/load-balancing" target="_blank"
+                rel="noreferrer noopener">load-balancing</a>, but can also function independently as a web server.</p>
+
+
+
+        <p><strong>This guide will help you install Nginx on Ubuntu 20.04 Linux (Focal Fossa).</strong></p>
+
+
+
+        <div class="wp-block-image">
+            <figure class="aligncenter"><img width="799" height="400"
+                    src="https://phoenixnap.com/kb/wp-content/uploads/2021/04/hot-to-install-and-configure-nginx-on-ubuntu-00.png"
+                    alt="Hot to install and configure Nginx on Ubuntu 20.04" class="wp-image-98599 entered lazyloaded"
+                    data-lazy-src="https://phoenixnap.com/kb/wp-content/uploads/2021/04/hot-to-install-and-configure-nginx-on-ubuntu-00.png"
+                    data-ll-status="loaded"><noscript><img width="799" height="400"
+                        src="https://phoenixnap.com/kb/wp-content/uploads/2021/04/hot-to-install-and-configure-nginx-on-ubuntu-00.png"
+                        alt="Hot to install and configure Nginx on Ubuntu 20.04" class="wp-image-98599" /></noscript>
+            </figure>
+        </div>
+
+
+
+        <p class="h3">Prerequisites</p>
+
+
+
+        <ul>
+            <li>A system running Ubuntu 20.04 Linux</li>
+            <li>A user account with&nbsp;<strong>sudo</strong>&nbsp;or<strong>&nbsp;root</strong>&nbsp;privileges</li>
+            <li>Access to a terminal window / command line (click&nbsp;<strong>Activities &gt; Search
+                    &gt;</strong>&nbsp;type&nbsp;<strong>Terminal</strong>)</li>
+        </ul>
+
+
+
+        <h2 id="ftoc-heading-1" class="ftwp-heading">Step 1: Update Software Repositories</h2>
+
+
+
+        <p>It is important to refresh the repository lists before installing new software. This helps make sure that the
+            latest updates and patches are installed.</p>
+
+
+
+        <p>Open a terminal window and enter the following:</p>
+
+
+
+        <span data-button-text="Copy" data-button-position="inside" data-button-copy-text="Copied!"
+            data-style="svg-icon" data-button-title="Copy to Clipboard" data-selector="pre"
+            class="copy-the-code-wrap copy-the-code-style-svg-icon copy-the-code-inside-wrap">
+            <pre
+                class="wp-block-code copy-the-code-target"><code>sudo apt-get update</code><button class="copy-the-code-button" data-style="svg-icon" title="Copy to Clipboard"><svg viewBox="-21 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m186.667969 416c-49.984375 0-90.667969-40.683594-90.667969-90.667969v-218.664062h-37.332031c-32.363281 0-58.667969 26.300781-58.667969 58.664062v288c0 32.363281 26.304688 58.667969 58.667969 58.667969h266.664062c32.363281 0 58.667969-26.304688 58.667969-58.667969v-37.332031zm0 0"></path><path d="m469.332031 58.667969c0-32.40625-26.261719-58.667969-58.664062-58.667969h-224c-32.40625 0-58.667969 26.261719-58.667969 58.667969v266.664062c0 32.40625 26.261719 58.667969 58.667969 58.667969h224c32.402343 0 58.664062-26.261719 58.664062-58.667969zm0 0"></path></svg></button></pre>
+            </span>
+
+
+
+        <div class="wp-block-image">
+            <figure class="aligncenter"><img width="800" height="164"
+                    src="https://phoenixnap.com/kb/wp-content/uploads/2021/04/hot-to-install-and-configure-nginx-on-ubuntu-01-1.png"
+                    alt="Updating software repositories" class="wp-image-98574 entered lazyloaded"
+                    data-lazy-src="https://phoenixnap.com/kb/wp-content/uploads/2021/04/hot-to-install-and-configure-nginx-on-ubuntu-01-1.png"
+                    data-ll-status="loaded"><noscript><img width="800" height="164"
+                        src="https://phoenixnap.com/kb/wp-content/uploads/2021/04/hot-to-install-and-configure-nginx-on-ubuntu-01-1.png"
+                        alt="Updating software repositories" class="wp-image-98574" /></noscript></figure>
+        </div>
+
+
+
+        <p>Allow the process to finish.</p>
+
+
+
+        <h2 id="ftoc-heading-2" class="ftwp-heading">Step 2: Install Nginx From Ubuntu Repositories</h2>
+
+
+
+        <p>Nginx is included in the Ubuntu 20.04 default repositories. Install it by entering the following command:</p>
+
+
+
+        <span data-button-text="Copy" data-button-position="inside" data-button-copy-text="Copied!"
+            data-style="svg-icon" data-button-title="Copy to Clipboard" data-selector="pre"
+            class="copy-the-code-wrap copy-the-code-style-svg-icon copy-the-code-inside-wrap">
+            <pre
+                class="wp-block-code copy-the-code-target"><code>sudo apt-get install nginx</code><button class="copy-the-code-button" data-style="svg-icon" title="Copy to Clipboard"><svg viewBox="-21 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m186.667969 416c-49.984375 0-90.667969-40.683594-90.667969-90.667969v-218.664062h-37.332031c-32.363281 0-58.667969 26.300781-58.667969 58.664062v288c0 32.363281 26.304688 58.667969 58.667969 58.667969h266.664062c32.363281 0 58.667969-26.304688 58.667969-58.667969v-37.332031zm0 0"></path><path d="m469.332031 58.667969c0-32.40625-26.261719-58.667969-58.664062-58.667969h-224c-32.40625 0-58.667969 26.261719-58.667969 58.667969v266.664062c0 32.40625 26.261719 58.667969 58.667969 58.667969h224c32.402343 0 58.664062-26.261719 58.664062-58.667969zm0 0"></path></svg></button></pre>
+            </span>
+
+
+
+        <div class="wp-block-image">
+            <figure class="aligncenter"><img width="800" height="325"
+                    src="https://phoenixnap.com/kb/wp-content/uploads/2021/04/hot-to-install-and-configure-nginx-on-ubuntu-02.png"
+                    alt="Installing Nginx with the Ubuntu terminal" class="wp-image-98575 entered lazyloaded"
+                    data-lazy-src="https://phoenixnap.com/kb/wp-content/uploads/2021/04/hot-to-install-and-configure-nginx-on-ubuntu-02.png"
+                    data-ll-status="loaded"><noscript><img width="800" height="325"
+                        src="https://phoenixnap.com/kb/wp-content/uploads/2021/04/hot-to-install-and-configure-nginx-on-ubuntu-02.png"
+                        alt="Installing Nginx with the Ubuntu terminal" class="wp-image-98575" /></noscript></figure>
+        </div>
+
+
+
+        <div class="notice-note">
+            <div class="note-icon-wrapper"><i class="fa fa-lightbulb"></i></div>
+            <div class="notice-text">
+                <p><strong>Note:</strong> If the system generates an error about the lock file, please see <a
+                        href="https://phoenixnap.com/kb/fix-could-not-get-lock-error-ubuntu" target="_blank">How To Fix
+                        Could Not Get Lock /Var/Lib/Dpkg/Lock Error</a> for suggestions.</p>
+            </div>
+        </div>
+
+
+
+        <h2 id="ftoc-heading-3" class="ftwp-heading">Step 3: Verify the Installation</h2>
+
+
+
+        <p>Verify that Nginx installed correctly by checking the software version. Enter the following:</p>
+
+
+
+        <span data-button-text="Copy" data-button-position="inside" data-button-copy-text="Copied!"
+            data-style="svg-icon" data-button-title="Copy to Clipboard" data-selector="pre"
+            class="copy-the-code-wrap copy-the-code-style-svg-icon copy-the-code-inside-wrap">
+            <pre
+                class="wp-block-code copy-the-code-target"><code>nginx -v</code><button class="copy-the-code-button" data-style="svg-icon" title="Copy to Clipboard"><svg viewBox="-21 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m186.667969 416c-49.984375 0-90.667969-40.683594-90.667969-90.667969v-218.664062h-37.332031c-32.363281 0-58.667969 26.300781-58.667969 58.664062v288c0 32.363281 26.304688 58.667969 58.667969 58.667969h266.664062c32.363281 0 58.667969-26.304688 58.667969-58.667969v-37.332031zm0 0"></path><path d="m469.332031 58.667969c0-32.40625-26.261719-58.667969-58.664062-58.667969h-224c-32.40625 0-58.667969 26.261719-58.667969 58.667969v266.664062c0 32.40625 26.261719 58.667969 58.667969 58.667969h224c32.402343 0 58.664062-26.261719 58.664062-58.667969zm0 0"></path></svg></button></pre>
+            </span>
+
+
+
+        <p>The system should display the software version of Nginx.</p>
+
+
+
+        <div class="wp-block-image">
+            <figure class="aligncenter"><img width="800" height="68"
+                    src="https://phoenixnap.com/kb/wp-content/uploads/2021/04/hot-to-install-and-configure-nginx-on-ubuntu-03.png"
+                    alt="Verifying your version of Nginx" class="wp-image-98576 entered lazyloaded"
+                    data-lazy-src="https://phoenixnap.com/kb/wp-content/uploads/2021/04/hot-to-install-and-configure-nginx-on-ubuntu-03.png"
+                    data-ll-status="loaded"><noscript><img width="800" height="68"
+                        src="https://phoenixnap.com/kb/wp-content/uploads/2021/04/hot-to-install-and-configure-nginx-on-ubuntu-03.png"
+                        alt="Verifying your version of Nginx" class="wp-image-98576" /></noscript></figure>
+        </div>
+
+
+
+        <h2 id="ftoc-heading-4" class="ftwp-heading">Step 4: Controlling the Nginx Service</h2>
+
+
+
+        <p>The behavior of Nginx can be adjusted. Use this to start or stop Nginx, or to enable or disable Nginx at
+            boot.</p>
+
+
+
+        <p>Start by checking the status of the Nginx service:</p>
+
+
+
+        <span data-button-text="Copy" data-button-position="inside" data-button-copy-text="Copied!"
+            data-style="svg-icon" data-button-title="Copy to Clipboard" data-selector="pre"
+            class="copy-the-code-wrap copy-the-code-style-svg-icon copy-the-code-inside-wrap">
+            <pre
+                class="wp-block-code copy-the-code-target"><code>sudo systemctl status nginx</code><button class="copy-the-code-button" data-style="svg-icon" title="Copy to Clipboard"><svg viewBox="-21 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m186.667969 416c-49.984375 0-90.667969-40.683594-90.667969-90.667969v-218.664062h-37.332031c-32.363281 0-58.667969 26.300781-58.667969 58.664062v288c0 32.363281 26.304688 58.667969 58.667969 58.667969h266.664062c32.363281 0 58.667969-26.304688 58.667969-58.667969v-37.332031zm0 0"></path><path d="m469.332031 58.667969c0-32.40625-26.261719-58.667969-58.664062-58.667969h-224c-32.40625 0-58.667969 26.261719-58.667969 58.667969v266.664062c0 32.40625 26.261719 58.667969 58.667969 58.667969h224c32.402343 0 58.664062-26.261719 58.664062-58.667969zm0 0"></path></svg></button></pre>
+            </span>
+
+
+
+        <p>If the status displays&nbsp;<strong><code>active (running)</code></strong>, Nginx has already been started.
+            Press <strong><code>CTRL</code>+<code>z</code></strong> to exit the status display.</p>
+
+
+
+        <div class="wp-block-image">
+            <figure class="aligncenter"><img width="800" height="283"
+                    src="https://phoenixnap.com/kb/wp-content/uploads/2021/04/hot-to-install-and-configure-nginx-on-ubuntu-04.png"
+                    alt="Checking Nginx status" class="wp-image-98581 entered lazyloaded"
+                    data-lazy-src="https://phoenixnap.com/kb/wp-content/uploads/2021/04/hot-to-install-and-configure-nginx-on-ubuntu-04.png"
+                    data-ll-status="loaded"><noscript><img width="800" height="283"
+                        src="https://phoenixnap.com/kb/wp-content/uploads/2021/04/hot-to-install-and-configure-nginx-on-ubuntu-04.png"
+                        alt="Checking Nginx status" class="wp-image-98581" /></noscript></figure>
+        </div>
+
+
+
+        <p>If Nginx is not running, use the following command to launch the Nginx service:</p>
+
+
+
+        <span data-button-text="Copy" data-button-position="inside" data-button-copy-text="Copied!"
+            data-style="svg-icon" data-button-title="Copy to Clipboard" data-selector="pre"
+            class="copy-the-code-wrap copy-the-code-style-svg-icon copy-the-code-inside-wrap">
+            <pre
+                class="wp-block-code copy-the-code-target"><code>sudo systemctl start nginx</code><button class="copy-the-code-button" data-style="svg-icon" title="Copy to Clipboard"><svg viewBox="-21 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m186.667969 416c-49.984375 0-90.667969-40.683594-90.667969-90.667969v-218.664062h-37.332031c-32.363281 0-58.667969 26.300781-58.667969 58.664062v288c0 32.363281 26.304688 58.667969 58.667969 58.667969h266.664062c32.363281 0 58.667969-26.304688 58.667969-58.667969v-37.332031zm0 0"></path><path d="m469.332031 58.667969c0-32.40625-26.261719-58.667969-58.664062-58.667969h-224c-32.40625 0-58.667969 26.261719-58.667969 58.667969v266.664062c0 32.40625 26.261719 58.667969 58.667969 58.667969h224c32.402343 0 58.664062-26.261719 58.664062-58.667969zm0 0"></path></svg></button></pre>
+            </span>
+
+
+
+        <p>To set Nginx to load when the system starts, enter the following:</p>
+
+
+
+        <span data-button-text="Copy" data-button-position="inside" data-button-copy-text="Copied!"
+            data-style="svg-icon" data-button-title="Copy to Clipboard" data-selector="pre"
+            class="copy-the-code-wrap copy-the-code-style-svg-icon copy-the-code-inside-wrap">
+            <pre
+                class="wp-block-code copy-the-code-target"><code>sudo systemctl enable nginx</code><button class="copy-the-code-button" data-style="svg-icon" title="Copy to Clipboard"><svg viewBox="-21 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m186.667969 416c-49.984375 0-90.667969-40.683594-90.667969-90.667969v-218.664062h-37.332031c-32.363281 0-58.667969 26.300781-58.667969 58.664062v288c0 32.363281 26.304688 58.667969 58.667969 58.667969h266.664062c32.363281 0 58.667969-26.304688 58.667969-58.667969v-37.332031zm0 0"></path><path d="m469.332031 58.667969c0-32.40625-26.261719-58.667969-58.664062-58.667969h-224c-32.40625 0-58.667969 26.261719-58.667969 58.667969v266.664062c0 32.40625 26.261719 58.667969 58.667969 58.667969h224c32.402343 0 58.664062-26.261719 58.664062-58.667969zm0 0"></path></svg></button></pre>
+            </span>
+
+
+
+        <div class="wp-block-image">
+            <figure class="aligncenter"><img width="800" height="89"
+                    src="https://phoenixnap.com/kb/wp-content/uploads/2021/04/hot-to-install-and-configure-nginx-on-ubuntu-05.png"
+                    alt="Setting Nginx to load when the system starts" class="wp-image-98582 entered lazyloaded"
+                    data-lazy-src="https://phoenixnap.com/kb/wp-content/uploads/2021/04/hot-to-install-and-configure-nginx-on-ubuntu-05.png"
+                    data-ll-status="loaded"><noscript><img width="800" height="89"
+                        src="https://phoenixnap.com/kb/wp-content/uploads/2021/04/hot-to-install-and-configure-nginx-on-ubuntu-05.png"
+                        alt="Setting Nginx to load when the system starts" class="wp-image-98582" /></noscript></figure>
+        </div>
+
+
+
+        <p>To stop the Nginx service, enter the following:</p>
+
+
+
+        <span data-button-text="Copy" data-button-position="inside" data-button-copy-text="Copied!"
+            data-style="svg-icon" data-button-title="Copy to Clipboard" data-selector="pre"
+            class="copy-the-code-wrap copy-the-code-style-svg-icon copy-the-code-inside-wrap">
+            <pre
+                class="wp-block-code copy-the-code-target"><code>sudo systemctl stop nginx</code><button class="copy-the-code-button" data-style="svg-icon" title="Copy to Clipboard"><svg viewBox="-21 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m186.667969 416c-49.984375 0-90.667969-40.683594-90.667969-90.667969v-218.664062h-37.332031c-32.363281 0-58.667969 26.300781-58.667969 58.664062v288c0 32.363281 26.304688 58.667969 58.667969 58.667969h266.664062c32.363281 0 58.667969-26.304688 58.667969-58.667969v-37.332031zm0 0"></path><path d="m469.332031 58.667969c0-32.40625-26.261719-58.667969-58.664062-58.667969h-224c-32.40625 0-58.667969 26.261719-58.667969 58.667969v266.664062c0 32.40625 26.261719 58.667969 58.667969 58.667969h224c32.402343 0 58.664062-26.261719 58.664062-58.667969zm0 0"></path></svg></button></pre>
+            </span>
+
+
+
+        <p>To prevent Nginx from loading when the system boots:</p>
+
+
+
+        <span data-button-text="Copy" data-button-position="inside" data-button-copy-text="Copied!"
+            data-style="svg-icon" data-button-title="Copy to Clipboard" data-selector="pre"
+            class="copy-the-code-wrap copy-the-code-style-svg-icon copy-the-code-inside-wrap">
+            <pre
+                class="wp-block-code copy-the-code-target"><code>sudo systemctl disable nginx</code><button class="copy-the-code-button" data-style="svg-icon" title="Copy to Clipboard"><svg viewBox="-21 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m186.667969 416c-49.984375 0-90.667969-40.683594-90.667969-90.667969v-218.664062h-37.332031c-32.363281 0-58.667969 26.300781-58.667969 58.664062v288c0 32.363281 26.304688 58.667969 58.667969 58.667969h266.664062c32.363281 0 58.667969-26.304688 58.667969-58.667969v-37.332031zm0 0"></path><path d="m469.332031 58.667969c0-32.40625-26.261719-58.667969-58.664062-58.667969h-224c-32.40625 0-58.667969 26.261719-58.667969 58.667969v266.664062c0 32.40625 26.261719 58.667969 58.667969 58.667969h224c32.402343 0 58.664062-26.261719 58.664062-58.667969zm0 0"></path></svg></button></pre>
+            </span>
+
+
+
+        <div class="wp-block-image">
+            <figure class="aligncenter"><img width="800" height="106"
+                    src="https://phoenixnap.com/kb/wp-content/uploads/2021/04/hot-to-install-and-configure-nginx-on-ubuntu-06.png"
+                    alt="Preventing Nginx from loading when the system boots" class="wp-image-98583 entered lazyloaded"
+                    data-lazy-src="https://phoenixnap.com/kb/wp-content/uploads/2021/04/hot-to-install-and-configure-nginx-on-ubuntu-06.png"
+                    data-ll-status="loaded"><noscript><img width="800" height="106"
+                        src="https://phoenixnap.com/kb/wp-content/uploads/2021/04/hot-to-install-and-configure-nginx-on-ubuntu-06.png"
+                        alt="Preventing Nginx from loading when the system boots" class="wp-image-98583" /></noscript>
+            </figure>
+        </div>
+
+
+
+        <p>To reload the Nginx service (used to apply configuration changes):</p>
+
+
+
+        <span data-button-text="Copy" data-button-position="inside" data-button-copy-text="Copied!"
+            data-style="svg-icon" data-button-title="Copy to Clipboard" data-selector="pre"
+            class="copy-the-code-wrap copy-the-code-style-svg-icon copy-the-code-inside-wrap">
+            <pre
+                class="wp-block-code copy-the-code-target"><code>sudo systemctl reload nginx</code><button class="copy-the-code-button" data-style="svg-icon" title="Copy to Clipboard"><svg viewBox="-21 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m186.667969 416c-49.984375 0-90.667969-40.683594-90.667969-90.667969v-218.664062h-37.332031c-32.363281 0-58.667969 26.300781-58.667969 58.664062v288c0 32.363281 26.304688 58.667969 58.667969 58.667969h266.664062c32.363281 0 58.667969-26.304688 58.667969-58.667969v-37.332031zm0 0"></path><path d="m469.332031 58.667969c0-32.40625-26.261719-58.667969-58.664062-58.667969h-224c-32.40625 0-58.667969 26.261719-58.667969 58.667969v266.664062c0 32.40625 26.261719 58.667969 58.667969 58.667969h224c32.402343 0 58.664062-26.261719 58.664062-58.667969zm0 0"></path></svg></button></pre>
+            </span>
+
+
+
+        <p>For a hard restart of Nginx:</p>
+
+
+
+        <span data-button-text="Copy" data-button-position="inside" data-button-copy-text="Copied!"
+            data-style="svg-icon" data-button-title="Copy to Clipboard" data-selector="pre"
+            class="copy-the-code-wrap copy-the-code-style-svg-icon copy-the-code-inside-wrap">
+            <pre
+                class="wp-block-code copy-the-code-target"><code>sudo systemctl restart nginx</code><button class="copy-the-code-button" data-style="svg-icon" title="Copy to Clipboard"><svg viewBox="-21 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m186.667969 416c-49.984375 0-90.667969-40.683594-90.667969-90.667969v-218.664062h-37.332031c-32.363281 0-58.667969 26.300781-58.667969 58.664062v288c0 32.363281 26.304688 58.667969 58.667969 58.667969h266.664062c32.363281 0 58.667969-26.304688 58.667969-58.667969v-37.332031zm0 0"></path><path d="m469.332031 58.667969c0-32.40625-26.261719-58.667969-58.664062-58.667969h-224c-32.40625 0-58.667969 26.261719-58.667969 58.667969v266.664062c0 32.40625 26.261719 58.667969 58.667969 58.667969h224c32.402343 0 58.664062-26.261719 58.664062-58.667969zm0 0"></path></svg></button></pre>
+            </span>
+
+
+
+        <h2 id="ftoc-heading-5" class="ftwp-heading">Step 5: Allow Nginx Traffic</h2>
+
+
+
+        <p>Nginx needs access through the system’s firewall. To do this, Nginx installs a set of profiles for the Ubuntu
+            default <strong>ufw</strong> (UnComplicated Firewall).</p>
+
+
+
+        <p>Start by displaying the available Nginx profiles:</p>
+
+
+
+        <span data-button-text="Copy" data-button-position="inside" data-button-copy-text="Copied!"
+            data-style="svg-icon" data-button-title="Copy to Clipboard" data-selector="pre"
+            class="copy-the-code-wrap copy-the-code-style-svg-icon copy-the-code-inside-wrap">
+            <pre
+                class="wp-block-code copy-the-code-target"><code>sudo ufw app list</code><button class="copy-the-code-button" data-style="svg-icon" title="Copy to Clipboard"><svg viewBox="-21 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m186.667969 416c-49.984375 0-90.667969-40.683594-90.667969-90.667969v-218.664062h-37.332031c-32.363281 0-58.667969 26.300781-58.667969 58.664062v288c0 32.363281 26.304688 58.667969 58.667969 58.667969h266.664062c32.363281 0 58.667969-26.304688 58.667969-58.667969v-37.332031zm0 0"></path><path d="m469.332031 58.667969c0-32.40625-26.261719-58.667969-58.664062-58.667969h-224c-32.40625 0-58.667969 26.261719-58.667969 58.667969v266.664062c0 32.40625 26.261719 58.667969 58.667969 58.667969h224c32.402343 0 58.664062-26.261719 58.664062-58.667969zm0 0"></path></svg></button></pre>
+            </span>
+
+
+
+        <p>The system should display the following:</p>
+
+
+
+        <div class="wp-block-image">
+            <figure class="aligncenter"><img width="800" height="113"
+                    src="https://phoenixnap.com/kb/wp-content/uploads/2021/04/hot-to-install-and-configure-nginx-on-ubuntu-07.png"
+                    alt="Displaying Nginx profiles in the Ubuntu firewall" class="wp-image-98584 entered lazyloaded"
+                    data-lazy-src="https://phoenixnap.com/kb/wp-content/uploads/2021/04/hot-to-install-and-configure-nginx-on-ubuntu-07.png"
+                    data-ll-status="loaded"><noscript><img width="800" height="113"
+                        src="https://phoenixnap.com/kb/wp-content/uploads/2021/04/hot-to-install-and-configure-nginx-on-ubuntu-07.png"
+                        alt="Displaying Nginx profiles in the Ubuntu firewall" class="wp-image-98584" /></noscript>
+            </figure>
+        </div>
+
+
+
+        <div class="notice-note">
+            <div class="note-icon-wrapper"><i class="fa fa-lightbulb"></i></div>
+            <div class="notice-text">
+                <p><strong>Note:</strong> Other applications may be listed. They can be ignored.</p>
+            </div>
+        </div>
+
+
+
+        <p>To grant Nginx access through the default Ubuntu firewall, enter the following:</p>
+
+
+
+        <span data-button-text="Copy" data-button-position="inside" data-button-copy-text="Copied!"
+            data-style="svg-icon" data-button-title="Copy to Clipboard" data-selector="pre"
+            class="copy-the-code-wrap copy-the-code-style-svg-icon copy-the-code-inside-wrap">
+            <pre
+                class="wp-block-code copy-the-code-target"><code>sudo ufw allow 'nginx http'</code><button class="copy-the-code-button" data-style="svg-icon" title="Copy to Clipboard"><svg viewBox="-21 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m186.667969 416c-49.984375 0-90.667969-40.683594-90.667969-90.667969v-218.664062h-37.332031c-32.363281 0-58.667969 26.300781-58.667969 58.664062v288c0 32.363281 26.304688 58.667969 58.667969 58.667969h266.664062c32.363281 0 58.667969-26.304688 58.667969-58.667969v-37.332031zm0 0"></path><path d="m469.332031 58.667969c0-32.40625-26.261719-58.667969-58.664062-58.667969h-224c-32.40625 0-58.667969 26.261719-58.667969 58.667969v266.664062c0 32.40625 26.261719 58.667969 58.667969 58.667969h224c32.402343 0 58.664062-26.261719 58.664062-58.667969zm0 0"></path></svg></button></pre>
+            </span>
+
+
+
+        <p>The system should display <strong><code>Rules updated</code></strong>.</p>
+
+
+
+        <div class="wp-block-image">
+            <figure class="aligncenter"><img width="800" height="72"
+                    src="https://phoenixnap.com/kb/wp-content/uploads/2021/04/hot-to-install-and-configure-nginx-on-ubuntu-08.png"
+                    alt="Updating firewall rules to include Nginx" class="wp-image-98585 entered lazyloaded"
+                    data-lazy-src="https://phoenixnap.com/kb/wp-content/uploads/2021/04/hot-to-install-and-configure-nginx-on-ubuntu-08.png"
+                    data-ll-status="loaded"><noscript><img width="800" height="72"
+                        src="https://phoenixnap.com/kb/wp-content/uploads/2021/04/hot-to-install-and-configure-nginx-on-ubuntu-08.png"
+                        alt="Updating firewall rules to include Nginx" class="wp-image-98585" /></noscript></figure>
+        </div>
+
+
+
+        <p>Refresh the firewall settings by entering:</p>
+
+
+
+        <span data-button-text="Copy" data-button-position="inside" data-button-copy-text="Copied!"
+            data-style="svg-icon" data-button-title="Copy to Clipboard" data-selector="pre"
+            class="copy-the-code-wrap copy-the-code-style-svg-icon copy-the-code-inside-wrap">
+            <pre
+                class="wp-block-code copy-the-code-target"><code>sudo ufw reload</code><button class="copy-the-code-button" data-style="svg-icon" title="Copy to Clipboard"><svg viewBox="-21 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m186.667969 416c-49.984375 0-90.667969-40.683594-90.667969-90.667969v-218.664062h-37.332031c-32.363281 0-58.667969 26.300781-58.667969 58.664062v288c0 32.363281 26.304688 58.667969 58.667969 58.667969h266.664062c32.363281 0 58.667969-26.304688 58.667969-58.667969v-37.332031zm0 0"></path><path d="m469.332031 58.667969c0-32.40625-26.261719-58.667969-58.664062-58.667969h-224c-32.40625 0-58.667969 26.261719-58.667969 58.667969v266.664062c0 32.40625 26.261719 58.667969 58.667969 58.667969h224c32.402343 0 58.664062-26.261719 58.664062-58.667969zm0 0"></path></svg></button></pre>
+            </span>
+
+
+
+        <div class="wp-block-image">
+            <figure class="aligncenter"><img width="800" height="54"
+                    src="https://phoenixnap.com/kb/wp-content/uploads/2021/04/hot-to-install-and-configure-nginx-on-ubuntu-09.png"
+                    alt="Reloading the firewall" class="wp-image-98586 entered lazyloaded"
+                    data-lazy-src="https://phoenixnap.com/kb/wp-content/uploads/2021/04/hot-to-install-and-configure-nginx-on-ubuntu-09.png"
+                    data-ll-status="loaded"><noscript><img width="800" height="54"
+                        src="https://phoenixnap.com/kb/wp-content/uploads/2021/04/hot-to-install-and-configure-nginx-on-ubuntu-09.png"
+                        alt="Reloading the firewall" class="wp-image-98586" /></noscript></figure>
+        </div>
+
+
+
+        <p>For encrypted (https) traffic, enter:</p>
+
+
+
+        <span data-button-text="Copy" data-button-position="inside" data-button-copy-text="Copied!"
+            data-style="svg-icon" data-button-title="Copy to Clipboard" data-selector="pre"
+            class="copy-the-code-wrap copy-the-code-style-svg-icon copy-the-code-inside-wrap">
+            <pre
+                class="wp-block-code copy-the-code-target"><code>sudo ufw allow 'nginx https'</code><button class="copy-the-code-button" data-style="svg-icon" title="Copy to Clipboard"><svg viewBox="-21 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m186.667969 416c-49.984375 0-90.667969-40.683594-90.667969-90.667969v-218.664062h-37.332031c-32.363281 0-58.667969 26.300781-58.667969 58.664062v288c0 32.363281 26.304688 58.667969 58.667969 58.667969h266.664062c32.363281 0 58.667969-26.304688 58.667969-58.667969v-37.332031zm0 0"></path><path d="m469.332031 58.667969c0-32.40625-26.261719-58.667969-58.664062-58.667969h-224c-32.40625 0-58.667969 26.261719-58.667969 58.667969v266.664062c0 32.40625 26.261719 58.667969 58.667969 58.667969h224c32.402343 0 58.664062-26.261719 58.664062-58.667969zm0 0"></path></svg></button></pre>
+            </span>
+
+
+
+        <p>To allow both, enter:</p>
+
+
+
+        <span data-button-text="Copy" data-button-position="inside" data-button-copy-text="Copied!"
+            data-style="svg-icon" data-button-title="Copy to Clipboard" data-selector="pre"
+            class="copy-the-code-wrap copy-the-code-style-svg-icon copy-the-code-inside-wrap">
+            <pre
+                class="wp-block-code copy-the-code-target"><code>sudo ufw allow 'nginx full'</code><button class="copy-the-code-button" data-style="svg-icon" title="Copy to Clipboard"><svg viewBox="-21 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m186.667969 416c-49.984375 0-90.667969-40.683594-90.667969-90.667969v-218.664062h-37.332031c-32.363281 0-58.667969 26.300781-58.667969 58.664062v288c0 32.363281 26.304688 58.667969 58.667969 58.667969h266.664062c32.363281 0 58.667969-26.304688 58.667969-58.667969v-37.332031zm0 0"></path><path d="m469.332031 58.667969c0-32.40625-26.261719-58.667969-58.664062-58.667969h-224c-32.40625 0-58.667969 26.261719-58.667969 58.667969v266.664062c0 32.40625 26.261719 58.667969 58.667969 58.667969h224c32.402343 0 58.664062-26.261719 58.664062-58.667969zm0 0"></path></svg></button></pre>
+            </span>
+
+
+
+        <div class="notice-note">
+            <div class="note-icon-wrapper"><i class="fa fa-lightbulb"></i></div>
+            <div class="notice-text">
+                <p><strong>Note:</strong> It is recommended that you only allow the bare minimum required traffic
+                    through the firewall. For this process, only basic HTTP traffic is needed. Other configurations may
+                    require HTTPS (encrypted) or other traffic. If the system uses a different firewall, it should be
+                    configured to allow traffic on Port 80 (HTTP), Port 443 (HTTPS), or whatever ports are required by
+                    the network.</p>
+            </div>
+        </div>
+
+
+
+        <h2 id="ftoc-heading-6" class="ftwp-heading">Step 6: Test Nginx</h2>
+
+
+
+        <p>Make sure that the Nginx service is running, as in Step 4. Open a web browser, and navigate to the following
+            web address:</p>
+
+
+
+        <span data-button-text="Copy" data-button-position="inside" data-button-copy-text="Copied!"
+            data-style="svg-icon" data-button-title="Copy to Clipboard" data-selector="pre"
+            class="copy-the-code-wrap copy-the-code-style-svg-icon copy-the-code-inside-wrap">
+            <pre
+                class="wp-block-code copy-the-code-target"><code>http://127.0.0.1</code><button class="copy-the-code-button" data-style="svg-icon" title="Copy to Clipboard"><svg viewBox="-21 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m186.667969 416c-49.984375 0-90.667969-40.683594-90.667969-90.667969v-218.664062h-37.332031c-32.363281 0-58.667969 26.300781-58.667969 58.664062v288c0 32.363281 26.304688 58.667969 58.667969 58.667969h266.664062c32.363281 0 58.667969-26.304688 58.667969-58.667969v-37.332031zm0 0"></path><path d="m469.332031 58.667969c0-32.40625-26.261719-58.667969-58.664062-58.667969h-224c-32.40625 0-58.667969 26.261719-58.667969 58.667969v266.664062c0 32.40625 26.261719 58.667969 58.667969 58.667969h224c32.402343 0 58.664062-26.261719 58.664062-58.667969zm0 0"></path></svg></button></pre>
+            </span>
+
+
+
+        <p>The system should display the Nginx welcome page.</p>
+
+
+
+        <div class="wp-block-image">
+            <figure class="aligncenter"><img width="800" height="347"
+                    src="https://phoenixnap.com/kb/wp-content/uploads/2021/04/hot-to-install-and-configure-nginx-on-ubuntu-10.png"
+                    alt="Nginx welcome page" class="wp-image-98588 entered lazyloaded"
+                    data-lazy-src="https://phoenixnap.com/kb/wp-content/uploads/2021/04/hot-to-install-and-configure-nginx-on-ubuntu-10.png"
+                    data-ll-status="loaded"><noscript><img width="800" height="347"
+                        src="https://phoenixnap.com/kb/wp-content/uploads/2021/04/hot-to-install-and-configure-nginx-on-ubuntu-10.png"
+                        alt="Nginx welcome page" class="wp-image-98588" /></noscript></figure>
+        </div>
+
+
+
+        <div class="notice-note">
+            <div class="note-icon-wrapper"><i class="fa fa-lightbulb"></i></div>
+            <div class="notice-text">
+                <p><strong>Note:</strong> If the system has a specific hostname or IP address, that may be used instead.
+                </p>
+            </div>
+        </div>
+
+
+
+        <p>If the system does not have a graphical interface, the Nginx Welcome page can be loaded in the terminal
+            using&nbsp;<strong>curl</strong>:</p>
+
+
+
+        <span data-button-text="Copy" data-button-position="inside" data-button-copy-text="Copied!"
+            data-style="svg-icon" data-button-title="Copy to Clipboard" data-selector="pre"
+            class="copy-the-code-wrap copy-the-code-style-svg-icon copy-the-code-inside-wrap">
+            <pre
+                class="wp-block-code copy-the-code-target"><code>sudo apt-get install curl
+        curl –i 127.0.0.1</code><button class="copy-the-code-button" data-style="svg-icon" title="Copy to Clipboard"><svg viewBox="-21 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m186.667969 416c-49.984375 0-90.667969-40.683594-90.667969-90.667969v-218.664062h-37.332031c-32.363281 0-58.667969 26.300781-58.667969 58.664062v288c0 32.363281 26.304688 58.667969 58.667969 58.667969h266.664062c32.363281 0 58.667969-26.304688 58.667969-58.667969v-37.332031zm0 0"></path><path d="m469.332031 58.667969c0-32.40625-26.261719-58.667969-58.664062-58.667969h-224c-32.40625 0-58.667969 26.261719-58.667969 58.667969v266.664062c0 32.40625 26.261719 58.667969 58.667969 58.667969h224c32.402343 0 58.664062-26.261719 58.664062-58.667969zm0 0"></path></svg></button></pre>
+            </span>
+
+
+
+        <p>The system should display the HTML code for the Nginx Welcome page.</p>
+
+
+
+        <div class="wp-block-image">
+            <figure class="aligncenter"><img width="800" height="646"
+                    src="https://phoenixnap.com/kb/wp-content/uploads/2021/04/hot-to-install-and-configure-nginx-on-ubuntu-11.png"
+                    alt="Nginx welcome page HTML structure" class="wp-image-98589 entered lazyloaded"
+                    data-lazy-src="https://phoenixnap.com/kb/wp-content/uploads/2021/04/hot-to-install-and-configure-nginx-on-ubuntu-11.png"
+                    data-ll-status="loaded"><noscript><img width="800" height="646"
+                        src="https://phoenixnap.com/kb/wp-content/uploads/2021/04/hot-to-install-and-configure-nginx-on-ubuntu-11.png"
+                        alt="Nginx welcome page HTML structure" class="wp-image-98589" /></noscript></figure>
+        </div>
+
+
+
+        <h2 id="ftoc-heading-7" class="ftwp-heading">Step 7: Configure a Server Block (Optional)</h2>
+
+
+
+        <p>In Nginx, a server block is a configuration that works as its own server. By default, Nginx has one server
+            block preconfigured.</p>
+
+
+
+        <p>It is located at <strong>/var/www/html</strong>. However, it can be configured with multiple server blocks
+            for different sites.</p>
+
+
+
+        <div class="notice-note">
+            <div class="note-icon-wrapper"><i class="fa fa-lightbulb"></i></div>
+            <div class="notice-text">
+                <p><strong>Note:</strong> This tutorial uses <strong>test_domain.com</strong> for the domain name. This
+                    may be replaced with your own domain name.</p>
+            </div>
+        </div>
+
+
+
+        <h3 id="ftoc-heading-8" class="ftwp-heading">1. Create a Directory for the Test Domain</h3>
+
+
+
+        <p>In a terminal window, create a new directory by entering the following:</p>
+
+
+
+        <span data-button-text="Copy" data-button-position="inside" data-button-copy-text="Copied!"
+            data-style="svg-icon" data-button-title="Copy to Clipboard" data-selector="pre"
+            class="copy-the-code-wrap copy-the-code-style-svg-icon copy-the-code-inside-wrap">
+            <pre
+                class="wp-block-code copy-the-code-target"><code>sudo mkdir -p /var/www/test_domain.com/html</code><button class="copy-the-code-button" data-style="svg-icon" title="Copy to Clipboard"><svg viewBox="-21 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m186.667969 416c-49.984375 0-90.667969-40.683594-90.667969-90.667969v-218.664062h-37.332031c-32.363281 0-58.667969 26.300781-58.667969 58.664062v288c0 32.363281 26.304688 58.667969 58.667969 58.667969h266.664062c32.363281 0 58.667969-26.304688 58.667969-58.667969v-37.332031zm0 0"></path><path d="m469.332031 58.667969c0-32.40625-26.261719-58.667969-58.664062-58.667969h-224c-32.40625 0-58.667969 26.261719-58.667969 58.667969v266.664062c0 32.40625 26.261719 58.667969 58.667969 58.667969h224c32.402343 0 58.664062-26.261719 58.664062-58.667969zm0 0"></path></svg></button></pre>
+            </span>
+
+
+
+        <h3 id="ftoc-heading-9" class="ftwp-heading">2. Configure Ownership and Permissions</h3>
+
+
+
+        <p>Use <strong><code>chmod</code> </strong>to configure ownership and permission rules:</p>
+
+
+
+        <span data-button-text="Copy" data-button-position="inside" data-button-copy-text="Copied!"
+            data-style="svg-icon" data-button-title="Copy to Clipboard" data-selector="pre"
+            class="copy-the-code-wrap copy-the-code-style-svg-icon copy-the-code-inside-wrap">
+            <pre
+                class="wp-block-code copy-the-code-target"><code>sudo chown –R $USER:$USER /var/www/test_domain.com
+        sudo chmod –R 755 /var/www/test_domain.com</code><button class="copy-the-code-button" data-style="svg-icon" title="Copy to Clipboard"><svg viewBox="-21 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m186.667969 416c-49.984375 0-90.667969-40.683594-90.667969-90.667969v-218.664062h-37.332031c-32.363281 0-58.667969 26.300781-58.667969 58.664062v288c0 32.363281 26.304688 58.667969 58.667969 58.667969h266.664062c32.363281 0 58.667969-26.304688 58.667969-58.667969v-37.332031zm0 0"></path><path d="m469.332031 58.667969c0-32.40625-26.261719-58.667969-58.664062-58.667969h-224c-32.40625 0-58.667969 26.261719-58.667969 58.667969v266.664062c0 32.40625 26.261719 58.667969 58.667969 58.667969h224c32.402343 0 58.664062-26.261719 58.664062-58.667969zm0 0"></path></svg></button></pre>
+            </span>
+
+
+
+        <div class="notice-note">
+            <div class="note-icon-wrapper"><i class="fa fa-lightbulb"></i></div>
+            <div class="notice-text">
+                <p><strong>Note:</strong> Read our article to learn how to use <a
+                        href="https://phoenixnap.com/kb/chmod-recursive" target="_blank">chmod recursively</a>.</p>
+            </div>
+        </div>
+
+
+
+        <h3 id="ftoc-heading-10" class="ftwp-heading">3. Create an index.html File for the Server Block</h3>
+
+
+
+        <p>Open&nbsp;<strong>index.html</strong> for editing in a text editor of your choice (we will use the Nano text
+            editor):</p>
+
+
+
+        <span data-button-text="Copy" data-button-position="inside" data-button-copy-text="Copied!"
+            data-style="svg-icon" data-button-title="Copy to Clipboard" data-selector="pre"
+            class="copy-the-code-wrap copy-the-code-style-svg-icon copy-the-code-inside-wrap">
+            <pre
+                class="wp-block-code copy-the-code-target"><code>sudo nano /var/www/test_domain.com/html/index.html</code><button class="copy-the-code-button" data-style="svg-icon" title="Copy to Clipboard"><svg viewBox="-21 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m186.667969 416c-49.984375 0-90.667969-40.683594-90.667969-90.667969v-218.664062h-37.332031c-32.363281 0-58.667969 26.300781-58.667969 58.664062v288c0 32.363281 26.304688 58.667969 58.667969 58.667969h266.664062c32.363281 0 58.667969-26.304688 58.667969-58.667969v-37.332031zm0 0"></path><path d="m469.332031 58.667969c0-32.40625-26.261719-58.667969-58.664062-58.667969h-224c-32.40625 0-58.667969 26.261719-58.667969 58.667969v266.664062c0 32.40625 26.261719 58.667969 58.667969 58.667969h224c32.402343 0 58.664062-26.261719 58.664062-58.667969zm0 0"></path></svg></button></pre>
+            </span>
+
+
+
+        <p>In the text editor, enter the following HTML code:</p>
+
+
+
+        <span data-button-text="Copy" data-button-position="inside" data-button-copy-text="Copied!"
+            data-style="svg-icon" data-button-title="Copy to Clipboard" data-selector="pre"
+            class="copy-the-code-wrap copy-the-code-style-svg-icon copy-the-code-inside-wrap">
+            <pre
+                class="wp-block-code copy-the-code-target"><code>&lt;html&gt;
+           &lt;head&gt;
+              &lt;title&gt;Welcome to test_domain.com!&lt;/title&gt;
+           &lt;/head&gt;
+           &lt;body&gt;
+              &lt;h1&gt;This message confirms that your Nginx server block is working. Great work!&lt;/h1&gt;
+           &lt;/body&gt;
+        &lt;/html&gt;</code><button class="copy-the-code-button" data-style="svg-icon" title="Copy to Clipboard"><svg viewBox="-21 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m186.667969 416c-49.984375 0-90.667969-40.683594-90.667969-90.667969v-218.664062h-37.332031c-32.363281 0-58.667969 26.300781-58.667969 58.664062v288c0 32.363281 26.304688 58.667969 58.667969 58.667969h266.664062c32.363281 0 58.667969-26.304688 58.667969-58.667969v-37.332031zm0 0"></path><path d="m469.332031 58.667969c0-32.40625-26.261719-58.667969-58.664062-58.667969h-224c-32.40625 0-58.667969 26.261719-58.667969 58.667969v266.664062c0 32.40625 26.261719 58.667969 58.667969 58.667969h224c32.402343 0 58.664062-26.261719 58.664062-58.667969zm0 0"></path></svg></button></pre>
+            </span>
+
+
+
+        <p>Press <strong><code>CTRL</code>+<code>o</code></strong>&nbsp;to write the changes,
+            then&nbsp;<strong><code>CTRL</code>+<code>x</code></strong>&nbsp;to exit.</p>
+
+
+
+        <h3 id="ftoc-heading-11" class="ftwp-heading">4. Create Nginx Server Block Configuration</h3>
+
+
+
+        <p>Open the configuration file for editing:</p>
+
+
+
+        <span data-button-text="Copy" data-button-position="inside" data-button-copy-text="Copied!"
+            data-style="svg-icon" data-button-title="Copy to Clipboard" data-selector="pre"
+            class="copy-the-code-wrap copy-the-code-style-svg-icon copy-the-code-inside-wrap">
+            <pre
+                class="wp-block-code copy-the-code-target"><code>sudo nano /etc/nginx/sites-available/test_domain.com</code><button class="copy-the-code-button" data-style="svg-icon" title="Copy to Clipboard"><svg viewBox="-21 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m186.667969 416c-49.984375 0-90.667969-40.683594-90.667969-90.667969v-218.664062h-37.332031c-32.363281 0-58.667969 26.300781-58.667969 58.664062v288c0 32.363281 26.304688 58.667969 58.667969 58.667969h266.664062c32.363281 0 58.667969-26.304688 58.667969-58.667969v-37.332031zm0 0"></path><path d="m469.332031 58.667969c0-32.40625-26.261719-58.667969-58.664062-58.667969h-224c-32.40625 0-58.667969 26.261719-58.667969 58.667969v266.664062c0 32.40625 26.261719 58.667969 58.667969 58.667969h224c32.402343 0 58.664062-26.261719 58.664062-58.667969zm0 0"></path></svg></button></pre>
+            </span>
+
+
+
+        <p>Enter the following code:</p>
+
+
+
+        <span data-button-text="Copy" data-button-position="inside" data-button-copy-text="Copied!"
+            data-style="svg-icon" data-button-title="Copy to Clipboard" data-selector="pre"
+            class="copy-the-code-wrap copy-the-code-style-svg-icon copy-the-code-inside-wrap">
+            <pre
+                class="wp-block-code copy-the-code-target"><code>server&nbsp;&nbsp;&nbsp; {
+        listen 80;
+        &nbsp;
+        root /var/www/test_domain.com/html;
+        index index.html index.htm index.nginx.debian.html;
+        &nbsp;
+        server_name test_domain.com www.test_domain.com;
+        location /&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {
+        try_files $uri $uri/ =404;
+              }
+        }</code><button class="copy-the-code-button" data-style="svg-icon" title="Copy to Clipboard"><svg viewBox="-21 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m186.667969 416c-49.984375 0-90.667969-40.683594-90.667969-90.667969v-218.664062h-37.332031c-32.363281 0-58.667969 26.300781-58.667969 58.664062v288c0 32.363281 26.304688 58.667969 58.667969 58.667969h266.664062c32.363281 0 58.667969-26.304688 58.667969-58.667969v-37.332031zm0 0"></path><path d="m469.332031 58.667969c0-32.40625-26.261719-58.667969-58.664062-58.667969h-224c-32.40625 0-58.667969 26.261719-58.667969 58.667969v266.664062c0 32.40625 26.261719 58.667969 58.667969 58.667969h224c32.402343 0 58.664062-26.261719 58.664062-58.667969zm0 0"></path></svg></button></pre>
+            </span>
+
+
+
+        <div class="wp-block-image">
+            <figure class="aligncenter"><img width="800" height="330"
+                    src="https://phoenixnap.com/kb/wp-content/uploads/2021/04/hot-to-install-and-configure-nginx-on-ubuntu-13.png"
+                    alt="Editing the Nginx server block configuration file" class="wp-image-98592 entered lazyloaded"
+                    data-lazy-src="https://phoenixnap.com/kb/wp-content/uploads/2021/04/hot-to-install-and-configure-nginx-on-ubuntu-13.png"
+                    data-ll-status="loaded"><noscript><img width="800" height="330"
+                        src="https://phoenixnap.com/kb/wp-content/uploads/2021/04/hot-to-install-and-configure-nginx-on-ubuntu-13.png"
+                        alt="Editing the Nginx server block configuration file" class="wp-image-98592" /></noscript>
+            </figure>
+        </div>
+
+
+
+        <h3 id="ftoc-heading-12" class="ftwp-heading">5. Create Symbolic Link for Nginx to Read on Startup</h3>
+
+
+
+        <p><a href="https://phoenixnap.com/kb/symbolic-link-linux" target="_blank" rel="noreferrer noopener">Create a
+                symbolic link</a> between the server block and the startup directory by entering the following:</p>
+
+
+
+        <span data-button-text="Copy" data-button-position="inside" data-button-copy-text="Copied!"
+            data-style="svg-icon" data-button-title="Copy to Clipboard" data-selector="pre"
+            class="copy-the-code-wrap copy-the-code-style-svg-icon copy-the-code-inside-wrap">
+            <pre
+                class="wp-block-code copy-the-code-target"><code>sudo ln –s /etc/nginx/sites-available/test_domain.com /etc/nginx/sites-enabled</code><button class="copy-the-code-button" data-style="svg-icon" title="Copy to Clipboard"><svg viewBox="-21 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m186.667969 416c-49.984375 0-90.667969-40.683594-90.667969-90.667969v-218.664062h-37.332031c-32.363281 0-58.667969 26.300781-58.667969 58.664062v288c0 32.363281 26.304688 58.667969 58.667969 58.667969h266.664062c32.363281 0 58.667969-26.304688 58.667969-58.667969v-37.332031zm0 0"></path><path d="m469.332031 58.667969c0-32.40625-26.261719-58.667969-58.664062-58.667969h-224c-32.40625 0-58.667969 26.261719-58.667969 58.667969v266.664062c0 32.40625 26.261719 58.667969 58.667969 58.667969h224c32.402343 0 58.664062-26.261719 58.664062-58.667969zm0 0"></path></svg></button></pre>
+            </span>
+
+
+
+        <h3 id="ftoc-heading-13" class="ftwp-heading">6. Restart the Nginx Service</h3>
+
+
+
+        <p><a href="https://phoenixnap.com/kb/nginx-start-stop-restart" target="_blank"
+                rel="noreferrer noopener">Restart Nginx</a> by running the following command:</p>
+
+
+
+        <span data-button-text="Copy" data-button-position="inside" data-button-copy-text="Copied!"
+            data-style="svg-icon" data-button-title="Copy to Clipboard" data-selector="pre"
+            class="copy-the-code-wrap copy-the-code-style-svg-icon copy-the-code-inside-wrap">
+            <pre
+                class="wp-block-code copy-the-code-target"><code>sudo systemctl restart nginx</code><button class="copy-the-code-button" data-style="svg-icon" title="Copy to Clipboard"><svg viewBox="-21 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m186.667969 416c-49.984375 0-90.667969-40.683594-90.667969-90.667969v-218.664062h-37.332031c-32.363281 0-58.667969 26.300781-58.667969 58.664062v288c0 32.363281 26.304688 58.667969 58.667969 58.667969h266.664062c32.363281 0 58.667969-26.304688 58.667969-58.667969v-37.332031zm0 0"></path><path d="m469.332031 58.667969c0-32.40625-26.261719-58.667969-58.664062-58.667969h-224c-32.40625 0-58.667969 26.261719-58.667969 58.667969v266.664062c0 32.40625 26.261719 58.667969 58.667969 58.667969h224c32.402343 0 58.664062-26.261719 58.664062-58.667969zm0 0"></path></svg></button></pre>
+            </span>
+
+
+
+        <h3 id="ftoc-heading-14" class="ftwp-heading">7. Test the Configuration</h3>
+
+
+
+        <span data-button-text="Copy" data-button-position="inside" data-button-copy-text="Copied!"
+            data-style="svg-icon" data-button-title="Copy to Clipboard" data-selector="pre"
+            class="copy-the-code-wrap copy-the-code-style-svg-icon copy-the-code-inside-wrap">
+            <pre
+                class="wp-block-code copy-the-code-target"><code>sudo nginx –t</code><button class="copy-the-code-button" data-style="svg-icon" title="Copy to Clipboard"><svg viewBox="-21 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m186.667969 416c-49.984375 0-90.667969-40.683594-90.667969-90.667969v-218.664062h-37.332031c-32.363281 0-58.667969 26.300781-58.667969 58.664062v288c0 32.363281 26.304688 58.667969 58.667969 58.667969h266.664062c32.363281 0 58.667969-26.304688 58.667969-58.667969v-37.332031zm0 0"></path><path d="m469.332031 58.667969c0-32.40625-26.261719-58.667969-58.664062-58.667969h-224c-32.40625 0-58.667969 26.261719-58.667969 58.667969v266.664062c0 32.40625 26.261719 58.667969 58.667969 58.667969h224c32.402343 0 58.664062-26.261719 58.664062-58.667969zm0 0"></path></svg></button></pre>
+            </span>
+
+
+
+        <p>The system should report that the configuration file syntax is OK, and that the configuration file test is
+            successful.</p>
+
+
+
+        <div class="wp-block-image">
+            <figure class="aligncenter"><img width="800" height="74"
+                    src="https://phoenixnap.com/kb/wp-content/uploads/2021/04/hot-to-install-and-configure-nginx-on-ubuntu-14.png"
+                    alt="testing the Nginx configuration file" class="wp-image-98593 entered lazyloaded"
+                    data-lazy-src="https://phoenixnap.com/kb/wp-content/uploads/2021/04/hot-to-install-and-configure-nginx-on-ubuntu-14.png"
+                    data-ll-status="loaded"><noscript><img width="800" height="74"
+                        src="https://phoenixnap.com/kb/wp-content/uploads/2021/04/hot-to-install-and-configure-nginx-on-ubuntu-14.png"
+                        alt="testing the Nginx configuration file" class="wp-image-98593" /></noscript></figure>
+        </div>
+
+
+
+        <h3 id="ftoc-heading-15" class="ftwp-heading">8. Modify the Hosts File (Optional)</h3>
+
+
+
+        <p>If you’re using a test domain name that isn’t registered or public,
+            the&nbsp;<strong>/etc/hosts</strong>&nbsp;file may need to be modified to display the
+            <em>test_domain.com</em> page.</p>
+
+
+
+        <p>Display the system’s IP address with the following command:</p>
+
+
+
+        <span data-button-text="Copy" data-button-position="inside" data-button-copy-text="Copied!"
+            data-style="svg-icon" data-button-title="Copy to Clipboard" data-selector="pre"
+            class="copy-the-code-wrap copy-the-code-style-svg-icon copy-the-code-inside-wrap">
+            <pre
+                class="wp-block-code copy-the-code-target"><code>hostname –i</code><button class="copy-the-code-button" data-style="svg-icon" title="Copy to Clipboard"><svg viewBox="-21 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m186.667969 416c-49.984375 0-90.667969-40.683594-90.667969-90.667969v-218.664062h-37.332031c-32.363281 0-58.667969 26.300781-58.667969 58.664062v288c0 32.363281 26.304688 58.667969 58.667969 58.667969h266.664062c32.363281 0 58.667969-26.304688 58.667969-58.667969v-37.332031zm0 0"></path><path d="m469.332031 58.667969c0-32.40625-26.261719-58.667969-58.664062-58.667969h-224c-32.40625 0-58.667969 26.261719-58.667969 58.667969v266.664062c0 32.40625 26.261719 58.667969 58.667969 58.667969h224c32.402343 0 58.664062-26.261719 58.664062-58.667969zm0 0"></path></svg></button></pre>
+            </span>
+
+
+
+        <p>Make a note of the IP address displayed.</p>
+
+
+
+        <div class="wp-block-image">
+            <figure class="aligncenter"><img width="800" height="64"
+                    src="https://phoenixnap.com/kb/wp-content/uploads/2021/04/hot-to-install-and-configure-nginx-on-ubuntu-15.png"
+                    alt="Check your system's IP address" class="wp-image-98594 entered lazyloaded"
+                    data-lazy-src="https://phoenixnap.com/kb/wp-content/uploads/2021/04/hot-to-install-and-configure-nginx-on-ubuntu-15.png"
+                    data-ll-status="loaded"><noscript><img width="800" height="64"
+                        src="https://phoenixnap.com/kb/wp-content/uploads/2021/04/hot-to-install-and-configure-nginx-on-ubuntu-15.png"
+                        alt="Check your system's IP address" class="wp-image-98594" /></noscript></figure>
+        </div>
+
+
+
+        <p>Next, open <strong>/etc/hosts</strong>&nbsp;for editing:</p>
+
+
+
+        <span data-button-text="Copy" data-button-position="inside" data-button-copy-text="Copied!"
+            data-style="svg-icon" data-button-title="Copy to Clipboard" data-selector="pre"
+            class="copy-the-code-wrap copy-the-code-style-svg-icon copy-the-code-inside-wrap">
+            <pre
+                class="wp-block-code copy-the-code-target"><code>sudo nano /etc/hosts</code><button class="copy-the-code-button" data-style="svg-icon" title="Copy to Clipboard"><svg viewBox="-21 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m186.667969 416c-49.984375 0-90.667969-40.683594-90.667969-90.667969v-218.664062h-37.332031c-32.363281 0-58.667969 26.300781-58.667969 58.664062v288c0 32.363281 26.304688 58.667969 58.667969 58.667969h266.664062c32.363281 0 58.667969-26.304688 58.667969-58.667969v-37.332031zm0 0"></path><path d="m469.332031 58.667969c0-32.40625-26.261719-58.667969-58.664062-58.667969h-224c-32.40625 0-58.667969 26.261719-58.667969 58.667969v266.664062c0 32.40625 26.261719 58.667969 58.667969 58.667969h224c32.402343 0 58.664062-26.261719 58.664062-58.667969zm0 0"></path></svg></button></pre>
+            </span>
+
+
+
+        <p>In an empty space just below the localhost information, add the following line:</p>
+
+
+
+        <span data-button-text="Copy" data-button-position="inside" data-button-copy-text="Copied!"
+            data-style="svg-icon" data-button-title="Copy to Clipboard" data-selector="pre"
+            class="copy-the-code-wrap copy-the-code-style-svg-icon copy-the-code-inside-wrap">
+            <pre
+                class="wp-block-code copy-the-code-target"><code>127.0.1.1 test_domain.com www.test_domain.com</code><button class="copy-the-code-button" data-style="svg-icon" title="Copy to Clipboard"><svg viewBox="-21 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m186.667969 416c-49.984375 0-90.667969-40.683594-90.667969-90.667969v-218.664062h-37.332031c-32.363281 0-58.667969 26.300781-58.667969 58.664062v288c0 32.363281 26.304688 58.667969 58.667969 58.667969h266.664062c32.363281 0 58.667969-26.304688 58.667969-58.667969v-37.332031zm0 0"></path><path d="m469.332031 58.667969c0-32.40625-26.261719-58.667969-58.664062-58.667969h-224c-32.40625 0-58.667969 26.261719-58.667969 58.667969v266.664062c0 32.40625 26.261719 58.667969 58.667969 58.667969h224c32.402343 0 58.664062-26.261719 58.664062-58.667969zm0 0"></path></svg></button></pre>
+            </span>
+
+
+
+        <div class="wp-block-image">
+            <figure class="aligncenter"><img width="800" height="315"
+                    src="https://phoenixnap.com/kb/wp-content/uploads/2021/04/hot-to-install-and-configure-nginx-on-ubuntu-16.png"
+                    alt="Making changes to the hosts file" class="wp-image-98596 entered lazyloaded"
+                    data-lazy-src="https://phoenixnap.com/kb/wp-content/uploads/2021/04/hot-to-install-and-configure-nginx-on-ubuntu-16.png"
+                    data-ll-status="loaded"><noscript><img width="800" height="315"
+                        src="https://phoenixnap.com/kb/wp-content/uploads/2021/04/hot-to-install-and-configure-nginx-on-ubuntu-16.png"
+                        alt="Making changes to the hosts file" class="wp-image-98596" /></noscript></figure>
+        </div>
+
+
+
+        <p>Replace <strong><code>127.0.1.1</code></strong> with the IP address displayed above. Press
+            <strong><code>CTRL</code>+<code>o</code></strong>&nbsp;to save the changes,
+            then&nbsp;<strong><code>CTRL</code>+<code>x</code></strong>&nbsp;to exit.</p>
+
+
+
+        <h3 id="ftoc-heading-16" class="ftwp-heading">9. Check test_domain.com in a Web Browser</h3>
+
+
+
+        <p>Open a browser window and navigate to<em>&nbsp;<strong>test_domain.com</strong></em> (or the domain name you
+            configured in Nginx).</p>
+
+
+
+        <p>You should see the message you entered in Part 3.</p>
+
+
+
+        <div class="wp-block-image">
+            <figure class="aligncenter"><img width="800" height="172"
+                    src="https://phoenixnap.com/kb/wp-content/uploads/2021/04/hot-to-install-and-configure-nginx-on-ubuntu-17.png"
+                    alt="test_domain.com front page" class="wp-image-98597 entered lazyloaded"
+                    data-lazy-src="https://phoenixnap.com/kb/wp-content/uploads/2021/04/hot-to-install-and-configure-nginx-on-ubuntu-17.png"
+                    data-ll-status="loaded"><noscript><img width="800" height="172"
+                        src="https://phoenixnap.com/kb/wp-content/uploads/2021/04/hot-to-install-and-configure-nginx-on-ubuntu-17.png"
+                        alt="test_domain.com front page" class="wp-image-98597" /></noscript></figure>
+        </div>
+
+
+
+        <h2 id="ftoc-heading-17" class="ftwp-heading">Important Nginx File Locations</h2>
+
+
+
+        <p>By default, Nginx stores different configuration and log files in the following locations:</p>
+
+
+
+        <ul>
+            <li><strong>/var/www/html</strong> – Website content as seen by visitors.</li>
+            <li><strong>/etc/nginx&nbsp;</strong>– Location of the main Nginx application files.</li>
+            <li><strong>/etc/nginx/nginx.conf –&nbsp;</strong>The main Nginx configuration file.</li>
+            <li><strong>/etc/nginx/sites-available</strong> – List of all websites configured through Nginx.</li>
+            <li><strong>/etc/nginx/sites-enabled –&nbsp;</strong>List of websites actively being served by Nginx.</li>
+            <li><strong>/var/log/nginx/access.log</strong> – Access logs tracking every request to your server.</li>
+            <li><strong>/var/log/ngins/error</strong>.<strong>log&nbsp;</strong>– A log of any errors generated in
+                Nginx.</li>
+        </ul>
+
+
+
+        <p class="h3">Conclusion</p>
+
+
+
+        <p>You should now have a working installation of Nginx on Ubuntu 20.04. As a bonus, you should now have an
+            introduction to setting up an Nginx server block.</p>
+
+
+
+        <p>If you intend to use Nginx as a reverse proxy, see our article – <a
+                href="https://phoenixnap.com/kb/nginx-reverse-proxy">How t</a><a
+                href="https://phoenixnap.com/kb/nginx-reverse-proxy" target="_blank" rel="noreferrer noopener">o</a><a
+                href="https://phoenixnap.com/kb/nginx-reverse-proxy"> Set Up Nginx as a Reverse Proxy</a>.</p>
+    </div>
+</body>
+
+</html>
